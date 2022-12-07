@@ -27,6 +27,7 @@ pipeline {
 
     stage("runing Unit Tests"){
       steps {
+         echo "Testing"
          script {
             sh "mvn test"
          }
