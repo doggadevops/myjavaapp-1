@@ -1,6 +1,28 @@
-
 pipeline {
    agent any
+
+   triggers {
+        GenericTrigger(
+        genericVariables: [
+        [key: 'ref', value: '$.ref']
+        ],
+
+        causeString: 'Triggered on $ref',
+
+        token: 'abc1234',
+        tokenCredentialId: '',
+
+        printContributedVariables: true,
+        printPostContent: true,
+
+        silentResponse: false,
+        
+        shouldNotFlattern: false,
+
+        regexpFilterText: '$ref',
+        regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
+        )
+    }
 
    environment {
 
@@ -27,7 +49,6 @@ pipeline {
 
     stage("runing Unit Tests"){
       steps {
-         echo "Testing"
          script {
             sh "mvn test"
          }
