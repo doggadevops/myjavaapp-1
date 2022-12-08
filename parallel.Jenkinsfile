@@ -9,16 +9,19 @@ pipeline {
             stage("Build-on-Linux"){
                steps {
                   echo "Building on Linux"
+                  sleep time: 1, unit: 'MINUTES'
                }
             }
             stage("Build-on-Windows"){
                steps {
                   echo "Building on Windows"
+                  sleep time: 1, unit: 'MINUTES'
                }
             }
             stage("Build-on-Andriod"){
                steps {
                   echo "Building on Andriod"
+                  sleep time: 1, unit: 'MINUTES'
                }
             }
     
