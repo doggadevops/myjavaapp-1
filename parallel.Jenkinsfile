@@ -9,19 +9,19 @@ pipeline {
             stage("Build-on-Linux"){
                steps {
                   echo "Building on Linux"
-                  sleep time: 1, unit: 'MINUTES'
+                  //sleep time: 1, unit: 'MINUTES'
                }
             }
             stage("Build-on-Windows"){
                steps {
                   echo "Building on Windows"
-                  sleep time: 1, unit: 'MINUTES'
+                  //sleep time: 1, unit: 'MINUTES'
                }
             }
             stage("Build-on-Andriod"){
                steps {
                   echo "Building on Andriod"
-                  sleep time: 1, unit: 'MINUTES'
+                  //sleep time: 1, unit: 'MINUTES'
                }
             }
     
@@ -45,6 +45,10 @@ pipeline {
 
  }
 
-
+ post{
+        always{
+            slackSend( channel: "#jenkins-devops-batch4", token: "HLKGjEFDK61t0rqWgNPqjKJZ", color: "good", message: "Completed Job Successfully")
+        }
+    }
 
 }
