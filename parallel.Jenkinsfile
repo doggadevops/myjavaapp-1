@@ -46,8 +46,15 @@ pipeline {
  }
 
  post{
-        always{
-            slackSend( channel: "#jenkins-devops-batch4", token: "HLKGjEFDK61t0rqWgNPqjKJZ", color: "good", message: "Completed Job Successfully")
+        // always{
+        //     slackSend( channel: "#jenkins-devops-batch4", token: "HLKGjEFDK61t0rqWgNPqjKJZ", color: "good", message: "Completed Job Successfully")
+        // }
+        failure{
+            slackSend( channel: "#jenkins-devops-batch4", token: "HLKGjEFDK61t0rqWgNPqjKJZ", color: "good", message: "Job has been failed, please look into this issue.")
+        }
+
+        success{
+            slackSend( channel: "#jenkins-devops-batch4", token: "HLKGjEFDK61t0rqWgNPqjKJZ", color: "good", message: "Job has been completed successfully! ")
         }
     }
 
