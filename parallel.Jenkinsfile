@@ -39,7 +39,7 @@ pipeline {
         steps {
             echo "Uploading artifacts..."
         }
-    }
+    //}
     
 
 
@@ -50,7 +50,7 @@ pipeline {
         //     slackSend( channel: "#jenkins-devops-batch4", token: "HLKGjEFDK61t0rqWgNPqjKJZ", color: "good", message: "Completed Job Successfully")
         // }
         failure{
-            slackSend( channel: "#jenkins-devops-batch4", token: "HLKGjEFDK61t0rqWgNPqjKJZ", color: "good", message: "Job has been failed, please look into this issue.")
+            slackSend( channel: "#jenkins-devops-batch4", token: "HLKGjEFDK61t0rqWgNPqjKJZ", color: "#FF0000", message: "Job has been failed, please look into this issue.")
         }
 
         success{
